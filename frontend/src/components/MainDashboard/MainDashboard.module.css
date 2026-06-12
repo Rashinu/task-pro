@@ -13,21 +13,33 @@
   gap: 8px;
   flex-shrink: 0;
   width: 280px;
-  padding: 14px 16px;
+  padding: 8px;
   border-radius: var(--radius-md);
-  border: 1px dashed var(--border-color);
+  border: none;
+  background-color: var(--bg-main);
   font-size: 14px;
   font-weight: 500;
-  color: var(--text-secondary);
-  transition: border-color 0.2s ease, color 0.2s ease;
+  color: var(--text-primary);
+  transition: background-color 0.2s ease;
 }
 
 .addColumnButton:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  background-color: var(--bg-secondary);
 }
 
-.addColumnButton svg {
-  width: 18px;
-  height: 18px;
+.addIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-sm);
+  background-color: var(--accent);
+  color: #161616;
+}
+
+.addIcon svg {
+  width: 14px;
+  height: 14px;
 }

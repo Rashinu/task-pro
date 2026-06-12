@@ -145,6 +145,58 @@
   color: var(--text-muted);
 }
 
+.helpCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 20px 16px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-secondary);
+}
+
+.helpIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  color: #161616;
+}
+
+.helpIcon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.helpText {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.helpText strong {
+  color: var(--accent);
+}
+
+.helpButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.helpButton svg {
+  width: 16px;
+  height: 16px;
+}
+
 .footer {
   display: flex;
   flex-direction: column;

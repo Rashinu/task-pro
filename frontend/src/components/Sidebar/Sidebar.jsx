@@ -72,15 +72,25 @@ export const Sidebar = ({ onNavigate }) => {
         ))}
       </ul>
 
-      <div className={css.footer}>
+      <div className={css.helpCard}>
+        <div className={css.helpIcon}>
+          <Icon name="icon-help" />
+        </div>
+        <p className={css.helpText}>
+          If you need help with <strong>TaskPro</strong>, check out our
+          support resources or reach out to our customer support team.
+        </p>
         <button
           type="button"
-          className={css.footerButton}
+          className={css.helpButton}
           onClick={() => setIsHelpOpen(true)}
         >
           <Icon name="icon-help" />
           <span>Need help?</span>
         </button>
+      </div>
+
+      <div className={css.footer}>
         <button
           type="button"
           className={css.footerButton}

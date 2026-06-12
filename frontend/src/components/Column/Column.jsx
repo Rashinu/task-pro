@@ -38,7 +38,9 @@ export const Column = ({ column, columns, boardId, priorityFilter }) => {
         className={css.addCardButton}
         onClick={() => setIsAddCardOpen(true)}
       >
-        <Icon name="icon-plus" />
+        <span className={css.addIcon}>
+          <Icon name="icon-plus" />
+        </span>
         Add another card
       </button>
 

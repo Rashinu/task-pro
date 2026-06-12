@@ -57,21 +57,33 @@
   align-items: center;
   gap: 8px;
   margin: 0 16px 16px;
-  padding: 12px;
+  padding: 8px;
   border-radius: var(--radius-sm);
-  border: 1px dashed var(--border-color);
-  font-size: 13px;
+  border: none;
+  background-color: var(--accent);
+  font-size: 14px;
   font-weight: 500;
-  color: var(--text-secondary);
-  transition: border-color 0.2s ease, color 0.2s ease;
+  color: #161616;
+  transition: background-color 0.2s ease;
 }
 
 .addCardButton:hover {
-  border-color: var(--accent);
+  background-color: var(--accent-hover);
+}
+
+.addIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-sm);
+  background-color: #161616;
   color: var(--accent);
 }
 
-.addCardButton svg {
-  width: 16px;
-  height: 16px;
+.addIcon svg {
+  width: 14px;
+  height: 14px;
 }

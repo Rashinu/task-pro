@@ -24,8 +24,10 @@ export const MainDashboard = ({ board, priorityFilter }) => {
         className={css.addColumnButton}
         onClick={() => setIsAddColumnOpen(true)}
       >
-        <Icon name="icon-plus" />
-        Add column
+        <span className={css.addIcon}>
+          <Icon name="icon-plus" />
+        </span>
+        Add another column
       </button>
 
       {isAddColumnOpen && (
