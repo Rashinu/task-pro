@@ -4,7 +4,7 @@
   justify-content: center;
   min-height: 100vh;
   padding: 24px;
-  background-color: var(--bg-body);
+  background: linear-gradient(180deg, #f3f4f6 0%, #ffffff 40%, #c7e4ba 100%);
 }
 
 .card {
@@ -15,7 +15,14 @@
   gap: 32px;
   padding: 40px 32px;
   border-radius: var(--radius-lg);
-  background-color: var(--bg-main);
+  background-color: #161616;
+
+  --bg-main: #161616;
+  --bg-input: #1f1f1f;
+  --text-primary: #ffffff;
+  --text-secondary: #c9c9c9;
+  --text-muted: #858d8d;
+  --border-color: #3a3a3a;
 }
 
 .logo {
