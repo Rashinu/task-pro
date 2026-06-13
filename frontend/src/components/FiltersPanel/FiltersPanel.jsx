@@ -1,25 +1,19 @@
-import { PRIORITY_OPTIONS } from "../../constants/boardOptions";
+import { Icon } from "../Icon/Icon";
+import { DATE_FILTER_OPTIONS } from "../../utils/dateFilters";
 import css from "./FiltersPanel.module.css";
-
-const PRIORITY_COLOR_VAR = {
-  without: "var(--priority-without)",
-  low: "var(--priority-low)",
-  medium: "var(--priority-medium)",
-  high: "var(--priority-high)",
-};
 
 export const FiltersPanel = ({ value, onChange }) => (
   <div className={css.panel}>
-    <p className={css.title}>Filter by priority</p>
+    <p className={css.title}>Filter by date</p>
     <button
       type="button"
       className={`${css.option} ${value === "all" ? css.optionActive : ""}`}
       onClick={() => onChange("all")}
     >
-      <span className={css.dot} style={{ backgroundColor: "transparent" }} />
+      <Icon name="icon-calendar" className={css.icon} />
       All
     </button>
-    {PRIORITY_OPTIONS.map((option) => (
+    {DATE_FILTER_OPTIONS.map((option) => (
       <button
         key={option.value}
         type="button"
@@ -28,10 +22,7 @@ export const FiltersPanel = ({ value, onChange }) => (
         }`}
         onClick={() => onChange(option.value)}
       >
-        <span
-          className={css.dot}
-          style={{ backgroundColor: PRIORITY_COLOR_VAR[option.value] }}
-        />
+        <Icon name="icon-calendar" className={css.icon} />
         {option.label}
       </button>
     ))}

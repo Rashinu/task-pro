@@ -3,7 +3,7 @@ import { Icon } from "../Icon/Icon";
 import { FiltersPanel } from "../FiltersPanel/FiltersPanel";
 import css from "./HeaderDashboard.module.css";
 
-export const HeaderDashboard = ({ board, priorityFilter, onFilterChange }) => {
+export const HeaderDashboard = ({ board, dateFilter, onFilterChange }) => {
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
 
   return (
@@ -16,7 +16,7 @@ export const HeaderDashboard = ({ board, priorityFilter, onFilterChange }) => {
       <button
         type="button"
         className={`${css.filterButton} ${
-          priorityFilter !== "all" ? css.filterButtonActive : ""
+          dateFilter !== "all" ? css.filterButtonActive : ""
         }`}
         onClick={() => setIsFiltersOpen((prev) => !prev)}
       >
@@ -26,7 +26,7 @@ export const HeaderDashboard = ({ board, priorityFilter, onFilterChange }) => {
 
       {isFiltersOpen && (
         <FiltersPanel
-          value={priorityFilter}
+          value={dateFilter}
           onChange={(value) => {
             onFilterChange(value);
             setIsFiltersOpen(false);

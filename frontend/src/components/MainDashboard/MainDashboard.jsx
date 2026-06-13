@@ -4,7 +4,7 @@ import { Column } from "../Column/Column";
 import { ColumnModal } from "../ColumnModal/ColumnModal";
 import css from "./MainDashboard.module.css";
 
-export const MainDashboard = ({ board, priorityFilter }) => {
+export const MainDashboard = ({ board, dateFilter }) => {
   const [isAddColumnOpen, setIsAddColumnOpen] = useState(false);
 
   return (
@@ -15,7 +15,7 @@ export const MainDashboard = ({ board, priorityFilter }) => {
           column={column}
           columns={board.columns}
           boardId={board._id}
-          priorityFilter={priorityFilter}
+          dateFilter={dateFilter}
         />
       ))}
 

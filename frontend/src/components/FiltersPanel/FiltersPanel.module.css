@@ -41,9 +41,12 @@
   font-weight: 500;
 }
 
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 1px solid var(--border-color);
+.icon {
+  width: 16px;
+  height: 16px;
+  color: var(--text-secondary);
+}
+
+.optionActive .icon {
+  color: var(--accent);
 }
