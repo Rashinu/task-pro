@@ -84,6 +84,9 @@ export const BoardForm = ({
       </div>
 
       <button className={css.submit} type="submit" disabled={isLoading}>
+        <span className={css.submitIcon}>
+          <Icon name="icon-plus" />
+        </span>
         {submitLabel}
       </button>
     </form>

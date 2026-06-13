@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Icon } from "../Icon/Icon";
 import { PRIORITY_OPTIONS } from "../../constants/boardOptions";
 import css from "../Modal/ModalForm.module.css";
 
@@ -80,7 +81,7 @@ export const CardForm = ({
       </div>
 
       <div className={css.field}>
-        <span className={css.label}>Priority</span>
+        <span className={css.label}>Label color</span>
         <div className={css.priorityRow}>
           {PRIORITY_OPTIONS.map((option) => (
             <button
@@ -90,12 +91,12 @@ export const CardForm = ({
                 priority === option.value ? css.priorityActive : ""
               }`}
               onClick={() => setPriority(option.value)}
+              aria-label={option.label}
             >
               <span
                 className={css.priorityDot}
                 style={{ backgroundColor: priorityColorVar[option.value] }}
               />
-              {option.label}
             </button>
           ))}
         </div>
@@ -113,6 +114,9 @@ export const CardForm = ({
       </div>
 
       <button className={css.submit} type="submit" disabled={isLoading}>
+        <span className={css.submitIcon}>
+          <Icon name="icon-plus" />
+        </span>
         {submitLabel}
       </button>
     </form>

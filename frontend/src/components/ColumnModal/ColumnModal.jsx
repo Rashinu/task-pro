@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import { Modal } from "../Modal/Modal";
+import { Icon } from "../Icon/Icon";
 import {
   createColumn,
   deleteColumn,
@@ -68,6 +69,9 @@ export const ColumnModal = ({ boardId, column, onClose }) => {
           {error && <span className={css.error}>{error}</span>}
         </div>
         <button className={css.submit} type="submit" disabled={isLoading}>
+          <span className={css.submitIcon}>
+            <Icon name="icon-plus" />
+          </span>
           {isEdit ? "Save" : "Create"}
         </button>
       </form>
