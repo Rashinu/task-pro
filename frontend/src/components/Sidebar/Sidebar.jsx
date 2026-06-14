@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
+import toast from "react-hot-toast";
 import { Icon } from "../Icon/Icon";
 import { CreateBoardModal } from "../CreateBoardModal/CreateBoardModal";
 import { EditBoardModal } from "../EditBoardModal/EditBoardModal";
 import { HelpModal } from "../HelpModal/HelpModal";
-import { fetchBoards } from "../../redux/boards/boardsOperations";
+import { deleteBoard, fetchBoards } from "../../redux/boards/boardsOperations";
 import { logOut } from "../../redux/auth/authOperations";
 import { selectBoards } from "../../redux/boards/boardsSelectors";
 import css from "./Sidebar.module.css";
@@ -13,6 +14,7 @@ import css from "./Sidebar.module.css";
 export const Sidebar = ({ onNavigate }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { boardId } = useParams();
   const boards = useSelector(selectBoards);
 
   const [isCreateOpen, setIsCreateOpen] = useState(false);
@@ -23,6 +25,17 @@ export const Sidebar = ({ onNavigate }) => {
     dispatch(fetchBoards());
   }, [dispatch]);
 
+  const handleDelete = async (board) => {
+    const result = await dispatch(deleteBoard(board._id));
+    if (deleteBoard.fulfilled.match(result)) {
+      if (boardId === board._id) {
+        navigate("/home");
+      }
+    } else {
+      toast.error(result.payload || "Failed to delete board");
+    }
+  };
+
   return (
     <div className={css.sidebar}>
       <div className={css.logo}>
@@ -32,15 +45,18 @@ export const Sidebar = ({ onNavigate }) => {
 
       <div className={css.sectionHeader}>
         <span className={css.sectionTitle}>My boards</span>
-        <button
-          type="button"
-          className={css.addButton}
-          onClick={() => setIsCreateOpen(true)}
-          aria-label="Create new board"
-        >
-          <Icon name="icon-plus" />
-        </button>
       </div>
+
+      <button
+        type="button"
+        className={css.createButton}
+        onClick={() => setIsCreateOpen(true)}
+      >
+        <span className={css.createIcon}>
+          <Icon name="icon-plus" />
+        </span>
+        Create a new board
+      </button>
 
       <ul className={css.list}>
         {boards.length === 0 && (
@@ -66,6 +82,14 @@ export const Sidebar = ({ onNavigate }) => {
                 aria-label="Edit board"
               >
                 <Icon name="icon-edit" />
+              </button>
+              <button
+                type="button"
+                className={css.iconButton}
+                onClick={() => handleDelete(board)}
+                aria-label="Delete board"
+              >
+                <Icon name="icon-trash" />
               </button>
             </div>
           </li>

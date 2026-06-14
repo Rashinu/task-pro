@@ -29,33 +29,76 @@
   }
 }
 
-.themeSwitcher {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px;
-  border-radius: var(--radius-md);
-  background-color: var(--bg-secondary);
+.themeDropdown {
+  position: relative;
 }
 
 .themeButton {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 10px;
+  gap: 8px;
+  padding: 8px 12px;
   border-radius: var(--radius-sm);
-  font-size: 12px;
+  border: 1px solid var(--border-color);
+  font-size: 13px;
   color: var(--text-secondary);
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.themeButton:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
 }
 
 .themeButton svg {
+  width: 16px;
+  height: 16px;
+}
+
+.chevronIcon {
+  width: 12px;
+  height: 12px;
+  margin-left: 4px;
+}
+
+.themeMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 20;
+  list-style: none;
+  margin: 0;
+  padding: 4px;
+  min-width: 140px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-modal);
+  box-shadow: var(--shadow-card);
+}
+
+.themeOption {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-align: left;
+}
+
+.themeOption svg {
   width: 14px;
   height: 14px;
 }
 
-.themeButtonActive {
-  background-color: var(--bg-card);
+.themeOption:hover {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.themeOptionActive {
   color: var(--accent);
 }
 

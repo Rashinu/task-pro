@@ -18,37 +18,11 @@
   border-radius: 2px;
 }
 
-.header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 8px;
-}
-
 .title {
   margin: 0;
   font-size: 14px;
   font-weight: 500;
   word-break: break-word;
-}
-
-.editButton {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  color: var(--text-muted);
-}
-
-.editButton:hover {
-  color: var(--accent);
-}
-
-.editButton svg {
-  width: 14px;
-  height: 14px;
 }
 
 .description {
@@ -61,17 +35,31 @@
 
 .footer {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 8px 12px;
   margin-top: 4px;
+}
+
+.metaCol {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metaLabel {
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
 .priorityLabel {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 11px;
-  color: var(--text-muted);
+  font-size: 12px;
+  color: var(--text-secondary);
 }
 
 .priorityDot {
@@ -81,27 +69,17 @@
   border: 1px solid var(--border-color);
 }
 
-.bottomRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-}
-
 .dateRow {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--text-secondary);
 }
 
-.dateRow svg {
+.bellIcon {
   width: 14px;
   height: 14px;
-}
-
-.bellIcon {
   color: var(--error);
 }
 
@@ -110,6 +88,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
+  margin-left: auto;
 }
 
 .iconButton {

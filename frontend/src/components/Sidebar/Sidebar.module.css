@@ -38,23 +38,38 @@
   text-transform: uppercase;
 }
 
-.addButton {
+.createButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background-color: var(--accent);
+  font-size: 14px;
+  font-weight: 500;
+  color: #161616;
+  transition: background-color 0.2s ease;
+}
+
+.createButton:hover {
+  background-color: var(--accent-hover);
+}
+
+.createIcon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  border: 1px solid var(--border-color);
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-sm);
+  background-color: #161616;
   color: var(--accent);
-  transition: border-color 0.2s ease;
 }
 
-.addButton:hover {
-  border-color: var(--accent);
-}
-
-.addButton svg {
+.createIcon svg {
   width: 14px;
   height: 14px;
 }

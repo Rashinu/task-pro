@@ -17,6 +17,9 @@ export const Header = ({ onMenuClick }) => {
   const user = useSelector(selectUser);
   const theme = useSelector(selectTheme);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isThemeOpen, setIsThemeOpen] = useState(false);
+
+  const activeTheme = THEMES.find(({ value }) => value === theme) ?? THEMES[0];
 
   return (
     <header className={css.header}>
@@ -29,20 +32,38 @@ export const Header = ({ onMenuClick }) => {
         <Icon name="icon-menu" />
       </button>
 
-      <div className={css.themeSwitcher}>
-        {THEMES.map(({ value, label, icon }) => (
-          <button
-            key={value}
-            type="button"
-            className={`${css.themeButton} ${
-              theme === value ? css.themeButtonActive : ""
-            }`}
-            onClick={() => dispatch(updateTheme(value))}
-          >
-            <Icon name={icon} />
-            <span>{label}</span>
-          </button>
-        ))}
+      <div className={css.themeDropdown}>
+        <button
+          type="button"
+          className={css.themeButton}
+          onClick={() => setIsThemeOpen((prev) => !prev)}
+        >
+          <Icon name={activeTheme.icon} />
+          <span>{activeTheme.label}</span>
+          <Icon name="icon-chevron-down" className={css.chevronIcon} />
+        </button>
+
+        {isThemeOpen && (
+          <ul className={css.themeMenu}>
+            {THEMES.map(({ value, label, icon }) => (
+              <li key={value}>
+                <button
+                  type="button"
+                  className={`${css.themeOption} ${
+                    theme === value ? css.themeOptionActive : ""
+                  }`}
+                  onClick={() => {
+                    dispatch(updateTheme(value));
+                    setIsThemeOpen(false);
+                  }}
+                >
+                  <Icon name={icon} />
+                  <span>{label}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
 
       <button

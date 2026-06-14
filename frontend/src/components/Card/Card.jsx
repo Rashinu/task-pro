@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Icon } from "../Icon/Icon";
 import { CardModal } from "../CardModal/CardModal";
-import { moveCard } from "../../redux/boards/boardsOperations";
+import { deleteCard, moveCard } from "../../redux/boards/boardsOperations";
 import css from "./Card.module.css";
 
 const PRIORITY_COLOR_VAR = {
@@ -48,6 +48,10 @@ export const Card = ({ card, columns }) => {
     setIsMoveOpen(false);
   };
 
+  const handleDelete = () => {
+    dispatch(deleteCard(card._id));
+  };
+
   return (
     <div className={css.card}>
       <span
@@ -55,67 +59,78 @@ export const Card = ({ card, columns }) => {
         style={{ backgroundColor: PRIORITY_COLOR_VAR[card.priority] }}
       />
 
-      <div className={css.header}>
-        <h4 className={css.title}>{card.title}</h4>
-        <button
-          type="button"
-          className={css.editButton}
-          onClick={() => setIsEditOpen(true)}
-          aria-label="Edit card"
-        >
-          <Icon name="icon-edit" />
-        </button>
-      </div>
+      <h4 className={css.title}>{card.title}</h4>
 
       <p className={css.description}>{card.description}</p>
 
       <div className={css.footer}>
-        <span className={css.priorityLabel}>
-          <span
-            className={css.priorityDot}
-            style={{ backgroundColor: PRIORITY_COLOR_VAR[card.priority] }}
-          />
-          {PRIORITY_LABEL[card.priority]}
-        </span>
+        <div className={css.metaCol}>
+          <span className={css.metaLabel}>Priority</span>
+          <span className={css.priorityLabel}>
+            <span
+              className={css.priorityDot}
+              style={{ backgroundColor: PRIORITY_COLOR_VAR[card.priority] }}
+            />
+            {PRIORITY_LABEL[card.priority]}
+          </span>
+        </div>
 
-        <div className={css.bottomRow}>
+        <div className={css.metaCol}>
+          <span className={css.metaLabel}>Deadline</span>
           <span className={css.dateRow}>
-            <Icon name="icon-calendar" />
             {formatDate(card.deadline)}
             {isDueToday(card.deadline) && (
               <Icon name="icon-bell" className={css.bellIcon} />
             )}
           </span>
+        </div>
 
-          <div className={css.actions}>
-            {otherColumns.length > 0 && (
-              <button
-                type="button"
-                className={css.iconButton}
-                onClick={() => setIsMoveOpen((prev) => !prev)}
-                aria-label="Move card"
-              >
-                <Icon name="icon-move" />
-              </button>
-            )}
+        <div className={css.actions}>
+          {otherColumns.length > 0 && (
+            <button
+              type="button"
+              className={css.iconButton}
+              onClick={() => setIsMoveOpen((prev) => !prev)}
+              aria-label="Move card"
+            >
+              <Icon name="icon-move" />
+            </button>
+          )}
 
-            {isMoveOpen && (
-              <ul className={css.moveMenu}>
-                <li className={css.moveMenuTitle}>Move to</li>
-                {otherColumns.map((column) => (
-                  <li key={column._id}>
-                    <button
-                      type="button"
-                      className={css.moveMenuItem}
-                      onClick={() => handleMove(column._id)}
-                    >
-                      {column.title}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+          <button
+            type="button"
+            className={css.iconButton}
+            onClick={() => setIsEditOpen(true)}
+            aria-label="Edit card"
+          >
+            <Icon name="icon-edit" />
+          </button>
+
+          <button
+            type="button"
+            className={css.iconButton}
+            onClick={handleDelete}
+            aria-label="Delete card"
+          >
+            <Icon name="icon-trash" />
+          </button>
+
+          {isMoveOpen && (
+            <ul className={css.moveMenu}>
+              <li className={css.moveMenuTitle}>Move to</li>
+              {otherColumns.map((column) => (
+                <li key={column._id}>
+                  <button
+                    type="button"
+                    className={css.moveMenuItem}
+                    onClick={() => handleMove(column._id)}
+                  >
+                    {column.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
 

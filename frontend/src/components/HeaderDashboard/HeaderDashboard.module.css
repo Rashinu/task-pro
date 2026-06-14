@@ -31,6 +31,33 @@
   white-space: nowrap;
 }
 
+.boardActions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.iconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  transition: color 0.2s ease;
+}
+
+.iconButton:hover {
+  color: var(--accent);
+}
+
+.iconButton svg {
+  width: 14px;
+  height: 14px;
+}
+
 .filterButton {
   position: relative;
   flex-shrink: 0;

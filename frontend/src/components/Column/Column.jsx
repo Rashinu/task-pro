@@ -1,12 +1,15 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Icon } from "../Icon/Icon";
 import { Card } from "../Card/Card";
 import { CardModal } from "../CardModal/CardModal";
 import { ColumnModal } from "../ColumnModal/ColumnModal";
+import { deleteColumn } from "../../redux/boards/boardsOperations";
 import { matchesDateFilter } from "../../utils/dateFilters";
 import css from "./Column.module.css";
 
 export const Column = ({ column, columns, boardId, dateFilter }) => {
+  const dispatch = useDispatch();
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isAddCardOpen, setIsAddCardOpen] = useState(false);
 
@@ -14,18 +17,32 @@ export const Column = ({ column, columns, boardId, dateFilter }) => {
     matchesDateFilter(card.deadline, dateFilter)
   );
 
+  const handleDelete = () => {
+    dispatch(deleteColumn(column._id));
+  };
+
   return (
     <div className={css.column}>
       <div className={css.header}>
         <h3 className={css.title}>{column.title}</h3>
-        <button
-          type="button"
-          className={css.editButton}
-          onClick={() => setIsEditOpen(true)}
-          aria-label="Edit column"
-        >
-          <Icon name="icon-edit" />
-        </button>
+        <div className={css.headerActions}>
+          <button
+            type="button"
+            className={css.editButton}
+            onClick={() => setIsEditOpen(true)}
+            aria-label="Edit column"
+          >
+            <Icon name="icon-edit" />
+          </button>
+          <button
+            type="button"
+            className={css.editButton}
+            onClick={handleDelete}
+            aria-label="Delete column"
+          >
+            <Icon name="icon-trash" />
+          </button>
+        </div>
       </div>
 
       <div className={css.cardList}>
