@@ -91,13 +91,13 @@
 }
 
 .bgSwatch {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  border: 2px solid transparent;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  border: none;
   background-size: cover;
   background-position: center;
-  transition: border-color 0.2s ease;
+  transition: outline-color 0.2s ease;
 }
 
 .bgSwatchNone {
@@ -114,7 +114,6 @@
 }
 
 .bgSwatchActive {
-  border-color: var(--accent);
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
