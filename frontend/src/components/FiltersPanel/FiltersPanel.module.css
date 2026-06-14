@@ -136,8 +136,8 @@
 
 :global(.react-datepicker__day--in-range),
 :global(.react-datepicker__day--in-selecting-range) {
-  background-color: rgba(190, 219, 176, 0.25);
-  color: var(--text-primary);
+  background-color: rgba(190, 219, 176, 0.25) !important;
+  color: var(--text-primary) !important;
   border-radius: 50%;
 }
 
@@ -145,7 +145,7 @@
 :global(.react-datepicker__day--range-end),
 :global(.react-datepicker__day--selecting-range-start),
 :global(.react-datepicker__day--selecting-range-end) {
-  background-color: var(--accent);
-  color: #161616;
+  background-color: var(--accent) !important;
+  color: #161616 !important;
   font-weight: 600;
 }

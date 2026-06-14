@@ -237,7 +237,7 @@
   font-family: var(--font-main);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  background-color: var(--bg-modal);
+  background-color: var(--bg-modal) !important;
   box-shadow: var(--shadow-card);
   overflow: hidden;
 }
@@ -248,22 +248,22 @@
 
 :global(.react-datepicker__header) {
   padding-top: 12px;
-  background-color: var(--bg-modal);
+  background-color: var(--bg-modal) !important;
   border-bottom: 1px solid var(--border-color);
 }
 
 :global(.react-datepicker__current-month) {
-  color: var(--text-primary);
+  color: var(--text-primary) !important;
   font-size: 14px;
   font-weight: 600;
 }
 
 :global(.react-datepicker__navigation-icon::before) {
-  border-color: var(--text-secondary);
+  border-color: var(--text-secondary) !important;
 }
 
 :global(.react-datepicker__navigation:hover .react-datepicker__navigation-icon::before) {
-  border-color: var(--accent);
+  border-color: var(--accent) !important;
 }
 
 :global(.react-datepicker__day-names) {
@@ -271,7 +271,7 @@
 }
 
 :global(.react-datepicker__day-name) {
-  color: var(--text-muted);
+  color: var(--text-muted) !important;
   font-size: 12px;
   width: 32px;
   line-height: 32px;
@@ -282,7 +282,7 @@
 }
 
 :global(.react-datepicker__day) {
-  color: var(--text-secondary);
+  color: var(--text-secondary) !important;
   width: 32px;
   line-height: 32px;
   border-radius: 50%;
@@ -290,23 +290,23 @@
 }
 
 :global(.react-datepicker__day:hover) {
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-secondary) !important;
   border-radius: 50%;
 }
 
 :global(.react-datepicker__day--outside-month) {
-  color: var(--text-muted);
+  color: var(--text-muted) !important;
 }
 
 :global(.react-datepicker__day--selected),
 :global(.react-datepicker__day--keyboard-selected),
 :global(.react-datepicker__day--today) {
-  background-color: var(--accent);
-  color: #161616;
+  background-color: var(--accent) !important;
+  color: #161616 !important;
   font-weight: 600;
 }
 
 :global(.react-datepicker__day--disabled) {
-  color: var(--text-muted);
+  color: var(--text-muted) !important;
   opacity: 0.4;
 }
