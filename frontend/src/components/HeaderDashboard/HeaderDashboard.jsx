@@ -8,7 +8,7 @@ import { EditBoardModal } from "../EditBoardModal/EditBoardModal";
 import { deleteBoard } from "../../redux/boards/boardsOperations";
 import css from "./HeaderDashboard.module.css";
 
-export const HeaderDashboard = ({ board, dateFilter, onFilterChange }) => {
+export const HeaderDashboard = ({ board, priorityFilter, onFilterChange }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
@@ -51,7 +51,7 @@ export const HeaderDashboard = ({ board, dateFilter, onFilterChange }) => {
       <button
         type="button"
         className={`${css.filterButton} ${
-          dateFilter !== "all" ? css.filterButtonActive : ""
+          priorityFilter !== "all" ? css.filterButtonActive : ""
         }`}
         onClick={() => setIsFiltersOpen((prev) => !prev)}
       >
@@ -61,11 +61,9 @@ export const HeaderDashboard = ({ board, dateFilter, onFilterChange }) => {
 
       {isFiltersOpen && (
         <FiltersPanel
-          value={dateFilter}
-          onChange={(value) => {
-            onFilterChange(value);
-            setIsFiltersOpen(false);
-          }}
+          value={priorityFilter}
+          onChange={onFilterChange}
+          onClose={() => setIsFiltersOpen(false)}
         />
       )}
 

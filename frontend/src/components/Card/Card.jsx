@@ -117,7 +117,6 @@ export const Card = ({ card, columns }) => {
 
           {isMoveOpen && (
             <ul className={css.moveMenu}>
-              <li className={css.moveMenuTitle}>Move to</li>
               {otherColumns.map((column) => (
                 <li key={column._id}>
                   <button
@@ -125,7 +124,10 @@ export const Card = ({ card, columns }) => {
                     className={css.moveMenuItem}
                     onClick={() => handleMove(column._id)}
                   >
-                    {column.title}
+                    <span>{column.title}</span>
+                    <span className={css.moveMenuIcon}>
+                      <Icon name="icon-arrow-right" />
+                    </span>
                   </button>
                 </li>
               ))}
