@@ -1,4 +1,9 @@
 .panel {
+  --text-primary: var(--modal-text-primary);
+  --text-secondary: var(--modal-text-secondary);
+  --text-muted: var(--modal-text-muted);
+  --border-color: var(--modal-border);
+
   position: absolute;
   top: calc(100% + 8px);
   right: 0;

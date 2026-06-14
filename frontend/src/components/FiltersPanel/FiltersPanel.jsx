@@ -5,7 +5,7 @@ import { PRIORITY_OPTIONS } from "../../constants/boardOptions";
 import css from "./FiltersPanel.module.css";
 
 const PRIORITY_COLOR_VAR = {
-  without: "var(--priority-without)",
+  without: "var(--border-color)",
   low: "var(--priority-low)",
   medium: "var(--priority-medium)",
   high: "var(--priority-high)",
