@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Icon } from "../Icon/Icon";
 import { BOARD_BACKGROUNDS, BOARD_ICONS } from "../../constants/boardOptions";
+import { BOARD_BACKGROUND_IMAGES } from "../../constants/boardBackgrounds";
 import css from "../Modal/ModalForm.module.css";
 
 export const BoardForm = ({
@@ -71,9 +72,12 @@ export const BoardForm = ({
             <button
               key={bg ?? "none"}
               type="button"
-              className={`${css.bgSwatch} ${bg ? bg : css.bgSwatchNone} ${
+              className={`${css.bgSwatch} ${bg ? "" : css.bgSwatchNone} ${
                 background === bg ? css.bgSwatchActive : ""
               }`}
+              style={
+                bg ? { backgroundImage: `url(${BOARD_BACKGROUND_IMAGES[bg]})` } : undefined
+              }
               onClick={() => setBackground(bg)}
               aria-label={bg ?? "No background"}
             >

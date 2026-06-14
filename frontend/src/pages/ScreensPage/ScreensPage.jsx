@@ -10,6 +10,7 @@ import {
   selectCurrentBoardLoading,
 } from "../../redux/boards/boardsSelectors";
 import { clearCurrentBoard } from "../../redux/boards/boardsSlice";
+import { BOARD_BACKGROUND_IMAGES } from "../../constants/boardBackgrounds";
 import css from "./ScreensPage.module.css";
 
 const ScreensPage = () => {
@@ -30,8 +31,19 @@ const ScreensPage = () => {
     return <Loader />;
   }
 
+  const backgroundImage = BOARD_BACKGROUND_IMAGES[board.background];
+
   return (
-    <div className={`${css.page} ${board.background ?? ""}`}>
+    <div
+      className={`${css.page} ${backgroundImage ? css.hasBackground : ""}`}
+      style={
+        backgroundImage
+          ? {
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${backgroundImage})`,
+            }
+          : undefined
+      }
+    >
       <HeaderDashboard
         board={board}
         dateFilter={dateFilter}
