@@ -18,7 +18,11 @@ const ScreensPage = () => {
   const { boardId } = useParams();
   const board = useSelector(selectCurrentBoard);
   const isLoading = useSelector(selectCurrentBoardLoading);
-  const [priorityFilter, setPriorityFilter] = useState("all");
+  const [filters, setFilters] = useState({
+    priority: "all",
+    startDate: null,
+    endDate: null,
+  });
 
   useEffect(() => {
     dispatch(fetchBoardById(boardId));
@@ -46,10 +50,10 @@ const ScreensPage = () => {
     >
       <HeaderDashboard
         board={board}
-        priorityFilter={priorityFilter}
-        onFilterChange={setPriorityFilter}
+        filters={filters}
+        onFilterChange={setFilters}
       />
-      <MainDashboard board={board} priorityFilter={priorityFilter} />
+      <MainDashboard board={board} filters={filters} />
     </div>
   );
 };
