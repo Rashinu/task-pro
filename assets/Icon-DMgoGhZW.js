@@ -1,0 +1,1 @@
+import{h as e}from"./index-BAXM3oA4.js";var t=e(),n=({name:e,className:n,...r})=>(0,t.jsx)(`svg`,{className:n,"aria-hidden":`true`,...r,children:(0,t.jsx)(`use`,{href:`/task-pro/icons.svg#${e}`})});export{n as t};
