@@ -1,4 +1,9 @@
 .column {
+  --text-primary: var(--modal-text-primary);
+  --text-secondary: var(--modal-text-secondary);
+  --text-muted: var(--modal-text-muted);
+  --border-color: var(--modal-border);
+
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
